@@ -1,0 +1,8 @@
+﻿Group: Discount requirements
+FriendlyName: Customer is spending x.xx amount
+SystemName: DiscountRequirement.IsSpendingAmount
+Version: 1.00
+SupportedVersions: 3.30
+Author: Marco Alves
+DisplayOrder: 1
+FileName: Nop.Plugin.DiscountRules.IsSpendingAmount.dll
