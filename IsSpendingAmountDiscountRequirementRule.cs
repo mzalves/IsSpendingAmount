@@ -17,15 +17,13 @@ namespace Nop.Plugin.DiscountRules.IsSpendingAmount
     {
         private readonly IStoreContext _storeContext;
         private readonly ISettingService _settingService;
-        private readonly IOrderTotalCalculationService _shoppingCartService;
         private readonly IWorkContext _workContext;
         private readonly IPriceCalculationService _priceCalculationService;
 
         public IsSpendingAmountDiscountRequirementRule(ISettingService settingService,
-            IOrderTotalCalculationService shoppingCartService, IStoreContext storeContext, IWorkContext workContext, IPriceCalculationService priceCalculationService)
+            IStoreContext storeContext, IWorkContext workContext, IPriceCalculationService priceCalculationService)
         {
             _settingService = settingService;
-            _shoppingCartService = shoppingCartService;
             _workContext = workContext;
             _storeContext = storeContext;
             _priceCalculationService = priceCalculationService;
@@ -58,10 +56,6 @@ namespace Nop.Plugin.DiscountRules.IsSpendingAmount
                 .ToList();
 
             var subTotal = cart.Sum(shoppingCartItem => _priceCalculationService.GetSubTotal(shoppingCartItem, true));
-
-            //var totalWithoutDiscount = _shoppingCartService.GetShoppingCartTotal(cart);
-            //var shippingTotal = _shoppingCartService.GetShoppingCartShippingTotal(cart);
-            //var spentAmount = (totalWithoutDiscount ?? 0) - (shippingTotal ?? 0);
 
             var spentAmount = subTotal;
             

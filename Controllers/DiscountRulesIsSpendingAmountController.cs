@@ -63,7 +63,7 @@ namespace Nop.Plugin.DiscountRules.IsSpendingAmount.Controllers
             //add a prefix
             ViewData.TemplateInfo.HtmlFieldPrefix = string.Format("DiscountRulesIsSpendingAmount{0}", discountRequirementId.HasValue ? discountRequirementId.Value.ToString() : "0");
 
-            return View("Nop.Plugin.DiscountRules.IsSpendingAmount.Views.DiscountRulesIsSpendingAmount.Configure", model);
+            return View("~/Plugins/DiscountRules.IsSpendingAmount/Views/DiscountRulesIsSpendingAmount/Configure.cshtml", model);
         }
 
         [HttpPost]
